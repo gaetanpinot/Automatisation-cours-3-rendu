@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Entity\Person;
+use App\Entity\Product;
 use App\Entity\Wallet;
 use PHPUnit\Framework\TestCase;
 
@@ -80,6 +81,26 @@ class PersonTest extends TestCase
         $this->assertEquals(33.34, $person2->getWallet()->getBalance());
         $this->assertEquals(33.33, $person3->getWallet()->getBalance());
         $this->assertEquals(33.33, $person4->getWallet()->getBalance());
+    }
+
+    public function testBuyProduct(): void
+    {
+
+        $person = new Person('Ronald MCdonald', 'USD');
+        $person->getWallet()->setBalance(100);
+        $product = new Product('Product', ['USD' => 100, 'EUR' => 2], 'food');
+        $person->buyProduct($product);
+        $this->assertEquals(0, $person->getWallet()->getBalance());
+
+    }
+
+    public function testBuyProductBadCurrency(): void
+    {
+        $person = new Person('Ronald MCdonald', 'USD');
+        $person->getWallet()->setBalance(100);
+        $product = new Product('Product', ['EUR' => 2], 'food');
+        $this->expectException(\Exception::class);
+        $person->buyProduct($product);
     }
 
 }
