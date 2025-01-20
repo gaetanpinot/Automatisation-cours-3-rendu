@@ -94,7 +94,7 @@ class Wallet
             throw new \Exception('Insufficient funds');
         }
 
-        $this->balance -= $amount;
+        $this->balance -= round($amount, 2);
     }
 
     /**
@@ -108,6 +108,6 @@ class Wallet
         if ($amount < 0) {
             throw new \Exception('Invalid amount');
         }
-        $this->balance += $amount;
+        $this->balance += round($amount, 2);
     }
 }
