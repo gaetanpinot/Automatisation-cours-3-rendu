@@ -1,6 +1,6 @@
 # TP Automatisation du developpement - Test - Rendu 3
 ## PINOT Gaëtan
-[ https://github.com/gaetanpinot/Automatisation-cours-3-rendu ]
+https://github.com/gaetanpinot/Automatisation-cours-3-rendu
 
 
 Mini projet pour le rendu numéro 3 du cours d'automatisation du développement sur les tests.
